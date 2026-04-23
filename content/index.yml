@@ -60,8 +60,10 @@ efforts:
   title: "[Efforts]{.text-primary} to address those challenges"
   description: This session will incorporate contributions from the following projects.
   items:
-    - title: Mallory
+    - id: mallory
+      title: Mallory
       description: Exploration of malicious Solid apps that demonstrates existing problems.
+      start: 2026-06-15T10:00:00Z
       image:
         light: "/images/light/mallory.png"
         dark: "/images/dark/mallory.png"
@@ -72,8 +74,10 @@ efforts:
           target: _blank
           avatar:
             src: https://avatars.githubusercontent.com/u/876431?v=4
-    - title: MANDAT
+    - id: mandat
+      title: MANDAT
       description: Todo
+      start: 2026-06-15T10:30:00Z
       image:
         light: "/images/mandat.png"
         dark: "/images/mandat.png"
@@ -84,8 +88,10 @@ efforts:
           target: _blank
           avatar:
             src: https://avatars.githubusercontent.com/u/25323625?v=4
-    - title: SAI
+    - id: sai
+      title: SAI
       description: Solid Applications Interoperability
+      start: 2026-06-15T11:00:00Z
       image:
         light: "/images/light/sai.png"
         dark: "/images/dark/sai.png"
@@ -96,8 +102,10 @@ efforts:
           target: _blank
           avatar:
             src: https://avatars.githubusercontent.com/u/876431?v=4
-    - title: Data Terms of Use
+    - id: dtou
+      title: Data Terms of Use
       description: Todo
+      start: 2026-06-15T11:30:00Z
       image:
         light: "/images/light/dtou.png"
         dark: "/images/dark/dtou.png"
@@ -108,13 +116,18 @@ efforts:
           target: _blank
           avatar:
             src: https://me.ryey.icu/assets/photo.jpg
-    - title: Linked Web Storage
+    - id: lws
+      title: Linked Web Storage
       description:
         W3C LWS Working Group will publish a web standard which Solid will buld on.
         We will explore what is being addressed in LWS Protocol specification.
+      start: 2026-06-15T12:00:00Z
       image:
         light: "/images/lws.png"
         dark: "/images/lws.png"
+agenda:
+  title: "[Agenda]{.text-primary}"
+  description: Presentations in chronological order.
 related:
   title: Related sessions at [Solid Symposium 2026]{.text-primary}
   description: You might also be interested in participating.

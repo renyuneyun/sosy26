@@ -34,13 +34,15 @@ export const collections = {
         links: z.array(createLinkSchema())
       }),
       section: createBaseSchema().extend({
-        headline: z.string().optional(),
+        headline: z.string().optional()
       }),
       challenges: createBaseSchema().extend({
         challenges: z.array(createChallengeSchema())
       }),
       efforts: createBaseSchema().extend({
         items: z.array(createChallengeSchema().extend({
+          id: z.string(),
+          start: z.string().datetime(),
           image: z.object({
             light: z.string().editor({ input: 'media' }),
             dark: z.string().editor({ input: 'media' })
@@ -77,9 +79,17 @@ export const collections = {
             )
           }))
       }),
+      agenda: createBaseSchema(),
       cta: createBaseSchema().extend({
         links: z.array(createLinkSchema())
       })
+    })
+  }),
+  agenda: defineCollection({
+    source: 'agenda/*.md',
+    type: 'data',
+    schema: z.object({
+      title: z.string().optional()
     })
   })
 }

@@ -4,6 +4,40 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
+const { data: agendaDocs } = await useAsyncData('agenda-docs', async () => {
+  const docs = await queryCollection('agenda').all()
+  return docs
+})
+
+const agendaBodiesMap = computed(() => {
+  const map: Record<string, any> = {}
+  if (!agendaDocs.value) return map
+  for (const doc of agendaDocs.value) {
+    const stem = doc.stem as string
+    const key = stem.replace('agenda/', '')
+    map[key] = doc
+  }
+  return map
+})
+
+const agendaItems = computed(() => {
+  if (!page.value?.efforts?.items) return []
+
+  const efforts = page.value.efforts.items
+    .filter((effort) => effort.start)
+    .sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
+
+  return efforts.map((effort) => ({
+    ...effort,
+    time: formatTime(effort.start)
+  }))
+})
+
+function formatTime(isoString: string): string {
+  const date = new Date(isoString)
+  return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })
+}
+
 useSeoMeta({
   title: page.value.seo?.title || page.value.title,
   ogTitle: page.value.seo?.title || page.value.title,
@@ -82,6 +116,35 @@ useSeoMeta({
           </div>
           <div class="flex flex-wrap gap-3">
             <UUser v-for="(user, index) in effort.users" :key="index" v-bind="user" size="xl" />
+          </div>
+        </UPageCard>
+      </template>
+    </UPageSection>
+
+    <UPageSection id="agenda" :description="page.agenda.description" class="relative overflow-hidden">
+      <template #headline>
+        <UColorModeImage light="/images/light/line-4.svg" dark="/images/dark/line-4.svg"
+          class="absolute -top-10 sm:top-0 right-1/2 h-24" />
+      </template>
+      <template #title>
+        <MDC :value="page.agenda.title" />
+      </template>
+
+      <template #features>
+        <UPageCard v-for="(item, index) in agendaItems" :key="index" class="group"
+          :ui="{ container: 'p-4 sm:p-4', title: 'flex items-center gap-1' }">
+          <div class="flex flex-col gap-2">
+            <span class="text-lg font-semibold">
+              {{ item.title }}
+            </span>
+            <span class="text-sm text-primary font-medium">
+              {{ item.time }}
+            </span>
+            <span class="text-sm text-muted">{{ item.description }}</span>
+            <ContentRenderer v-if="agendaBodiesMap[item.id]?.meta?.body" :value="agendaBodiesMap[item.id].meta.body" class="mt-2 text-sm" />
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <UUser v-for="(user, index) in item.users" :key="index" v-bind="user" size="xl" />
           </div>
         </UPageCard>
       </template>
