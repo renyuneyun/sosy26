@@ -11,15 +11,20 @@ const items = computed(() => [{
   to: '#efforts',
   active: activeHeadings.value.includes('efforts') && !activeHeadings.value.includes('challenges')
 }, {
+  label: 'Agenda',
+  to: '#agenda',
+  active: activeHeadings.value.includes('agenda') && !activeHeadings.value.includes('efforts')
+}, {
   label: 'Related',
   to: '#related',
-  active: activeHeadings.value.includes('related') && !activeHeadings.value.includes('efforts')
+  active: activeHeadings.value.includes('related') && !activeHeadings.value.includes('agenda')
 }])
 
 nuxtApp.hooks.hookOnce('page:finish', () => {
   updateHeadings([
     document.querySelector('#challenges'),
     document.querySelector('#efforts'),
+    document.querySelector('#agenda'),
     document.querySelector('#related')
   ].filter(Boolean) as Element[])
 })
