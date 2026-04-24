@@ -1,1 +1,5 @@
-More details about this presentation coming soon.
+* [slides](https://sosy26-canvas.hackers4peace.net/)
+* [sai-js](https://sai.js.org)
+* videos ([playlist](https://www.youtube.com/playlist?list=PLXBho_YohPB09B_ecOsABoI8Dc67v1H4O))
+  * [AuthZ screen](https://youtu.be/stMj1bzZOcQ) | [ACME](https://youtu.be/stMj1bzZOcQ?t=369)
+  * [Resource Sharing](https://youtu.be/IXzdH1JqcOA) | [notification](https://youtu.be/IXzdH1JqcOA?t=90)

@@ -1,1 +1,1 @@
-More details about this presentation coming soon.
+* [Repo](https://github.com/elf-pavlik/mallory)
