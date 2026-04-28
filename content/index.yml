@@ -115,12 +115,15 @@ efforts:
             src: https://avatars.githubusercontent.com/u/145133229?v=4
     - id: odrl
       title: ODRL
-      description: Todo
+      description: Access management and enforcement with ODRL with LOAMA and FORCE.
       start: 2026-04-30T10:55:00Z
+      image:
+        light: "/images/odrl-force-loama.png"
+        dark: "/images/odrl-force-loama.png"
       users:
         - name: Wout Slabbinck
           description: University of Ghent, Belgium
-          to: https://github.com/woutslabbinck
+          to: https://woutslabbinck.com/
           target: _blank
           avatar:
             src: https://avatars.githubusercontent.com/u/18707125?v=4
