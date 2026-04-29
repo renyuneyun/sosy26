@@ -103,8 +103,8 @@ efforts:
           avatar:
             src: https://avatars.githubusercontent.com/u/876431?v=4
     - id: uma
-      title: UMA
-      description: Todo
+      title: A4DS
+      description: Authorization for DataSpaces
       start: 2026-04-30T10:45:00Z
       users:
         - name: Wouter Termont
